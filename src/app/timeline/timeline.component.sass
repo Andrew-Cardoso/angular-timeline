@@ -1,0 +1,33 @@
+:host
+  flex-flow: column
+  display: flex
+  width: 100%
+
+  ::ng-deep app-timeline-card
+    display: grid
+    grid-template-columns: 6rem 1fr
+    min-height: 6rem
+
+  ::ng-deep app-timeline-card:first-child .timeline-point::before
+    display: none
+  ::ng-deep app-timeline-card:last-child .timeline-point::after
+    display: none
+
+  ::ng-deep app-timeline-card.active .timeline-point
+    background-color: white
+    border-width: 2px
+    .timeline-point-active
+      width: 80%
+      height: 80%
+
+    &::after
+      background-color: white
+
+  ::ng-deep app-timeline-card.active ~ app-timeline-card
+    .timeline-point
+      background-color: white
+      &::before, &::after
+        background-color: white
+
+    .timeline-card-container
+      filter: opacity(.75)
